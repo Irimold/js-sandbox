@@ -14,7 +14,7 @@ class Env {
 
     public static function get($key)
     {
-        return $_ENV($key);
+        return $_ENV[$key];
     }
 
     public static function deserialize($key)
