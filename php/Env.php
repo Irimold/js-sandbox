@@ -6,9 +6,9 @@ use Dotenv\Dotenv;
 
 class Env {
 
-    public static function init()
+    public static function init($path = __DIR__)
     {
-        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv = Dotenv::createImmutable($path);
         $dotenv->safeLoad();
     }
 

@@ -7,7 +7,7 @@ use App\Env;
 use App\Git;
 use App\JsonResponse;
 
-Env::init();
+Env::init(__DIR__.'/..');
 Cors::check();
 
 if (empty($_POST['todo'])) {
