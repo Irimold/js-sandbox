@@ -11,7 +11,7 @@ Env::init(__DIR__.'/..');
 Cors::check();
 
 if (empty($_POST['todo'])) {
-    JsonResponse::failed('', $_POST);
+    JsonResponse::failed('');
 }
 
 switch (strtolower($_POST['todo'])) {

@@ -9,14 +9,14 @@ class JsonResponse {
         static::response(200, true, $message, $data);
     }
 
-    public static function failed($message = "It seems like you are missing something? How about taking a nap? you know, maybe it will help you to remember what's missing", $data = [])
+    public static function failed($message = "It seems like you are missing something? How about taking a nap? you know, maybe it will help you to remember what's missing")
     {
-        static::response(400, false, $message, $data);
+        static::response(400, false, $message);
     }
 
-    public static function unauthorized($data = [])
+    public static function unauthorized()
     {
-        static::response(401, false, 'Whoopsie! Run! The ducks are coming with their bonker!!!', $data);
+        static::response(401, false, 'Whoopsie! Run! The ducks are coming with their bonker!!!');
     }
 
     public static function notFound()
