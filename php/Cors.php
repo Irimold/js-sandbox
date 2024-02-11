@@ -12,7 +12,7 @@ class Cors {
 
         $origin = $_SERVER['HTTP_ORIGIN'];
 
-        $allowedOrigins = Env::deserialize('ALLOW_ORIGIN');
+        $allowedOrigins = Env::deserialize('ALLOW_ORIGINS');
         if (!in_array($origin, $allowedOrigins)) {
             JsonResponse::unauthorized(['error' => 'origin invalid', 'allowed origin' => $allowedOrigins]);
         }
@@ -23,7 +23,7 @@ class Cors {
 
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
-            $allowedMethods = Env::get('ALLOW_METHOD');
+            $allowedMethods = Env::get('ALLOW_METHODS');
         
             if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) {
                 header("Access-Control-Allow-Methods: {$allowedMethods}");
