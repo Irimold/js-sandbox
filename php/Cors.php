@@ -14,7 +14,11 @@ class Cors {
 
         $allowedOrigins = Env::deserialize('ALLOW_ORIGINS');
         if (!in_array($origin, $allowedOrigins)) {
-            JsonResponse::unauthorized(['error' => 'origin invalid', 'allowed origin' => $allowedOrigins]);
+            JsonResponse::unauthorized([
+                'error' => 'origin invalid', 
+                'allowed origin' => $allowedOrigins,
+                'origin' => $origin,
+            ]);
         }
 
         header("Access-Control-Allow-Origin: {$origin}");
