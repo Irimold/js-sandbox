@@ -10,7 +10,9 @@ class Cors {
             JsonResponse::unauthorized(['error' => 'No http origin']);
         }
 
-        $origin = $_SERVER['HTTP_ORIGIN'];
+        $origin = str_replace('https://', '', $_SERVER['HTTP_ORIGIN']);
+        $origin = str_replace('http://', '', $origin);
+
 
         $allowedOrigins = Env::deserialize('ALLOW_ORIGINS');
         if (!in_array($origin, $allowedOrigins)) {
