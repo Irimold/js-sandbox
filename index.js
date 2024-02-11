@@ -1,5 +1,5 @@
 const pullChanges = () => {
-    fetch('/git', {
+    fetch('git', {
         method: 'POST',
         body: JSON.stringify({ todo: 'pull' }),
         headers: {
@@ -17,7 +17,7 @@ const pullChanges = () => {
 }
 
 const updateOrigin = () => {
-    fetch('/git', {
+    fetch('git', {
         method: 'POST',
         body: JSON.stringify({ todo: 'update-origin' }),
         headers: {
