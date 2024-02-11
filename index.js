@@ -1,10 +1,11 @@
 const pullChanges = () => {
+    
+    const data = new FormData
+    data.append('todo', 'pull')
+
     fetch('git/', {
         method: 'POST',
-        body: JSON.stringify({ todo: 'pull' }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: data,
     }).then(async (response) => {
         const result = await response.json();
         
@@ -14,15 +15,17 @@ const pullChanges = () => {
             console.error(result.message)
         ]
     }).catch(error => console.error(error));
+    
 }
 
 const updateOrigin = () => {
+
+    const data = new FormData
+    data.append('todo', 'pull')
+
     fetch('git/', {
         method: 'POST',
-        body: JSON.stringify({ todo: 'update-origin' }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: data
     }).then(async (response) => {
         const result = await response.json();
         
@@ -32,4 +35,5 @@ const updateOrigin = () => {
             console.error(result.message)
         ]
     }).catch(error => console.error(error));
+
 }
