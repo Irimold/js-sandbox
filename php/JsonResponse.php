@@ -9,9 +9,9 @@ class JsonResponse {
         static::response(200, true, $message, $data);
     }
 
-    public static function failed($message = "It seems like you are missing something? How about taking a nap? you know, maybe it will help you to remember what's missing")
+    public static function failed($message = "It seems like you are missing something? How about taking a nap? you know, maybe it will help you to remember what's missing", $data = [])
     {
-        static::response(400, false, $message);
+        static::response(400, false, $message, $data);
     }
 
     public static function unauthorized($data = [])
