@@ -7,14 +7,14 @@ class Cors {
     public static function check() 
     {
         if (empty($_SERVER['HTTP_ORIGIN'])) {
-            JsonResponse::unauthorized();
+            JsonResponse::unauthorized(['error' => 'No http origin']);
         }
 
         $origin = $_SERVER['HTTP_ORIGIN'];
 
         $allowedOrigins = Env::deserialize('ALLOW_ORIGIN');
         if (!in_array($origin, $allowedOrigins)) {
-            JsonResponse::unauthorized();
+            JsonResponse::unauthorized(['error' => 'origin invalid', 'allowed origin' => $allowedOrigins]);
         }
 
         header("Access-Control-Allow-Origin: {$origin}");

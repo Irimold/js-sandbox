@@ -14,9 +14,9 @@ class JsonResponse {
         static::response(400, false, $message);
     }
 
-    public static function unauthorized()
+    public static function unauthorized($data = [])
     {
-        static::response(401, false, 'Whoopsie! Run! The ducks are coming with their bonker!!!');
+        static::response(401, false, 'Whoopsie! Run! The ducks are coming with their bonker!!!', $data);
     }
 
     public static function notFound()
